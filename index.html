@@ -1,46 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>evan's games</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Site</title>
 
-        .game-button {
-            display: inline-block;
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            border: none;
-            border-radius: 8px;
-            background-color: #0000FF;
-            color: white;
-            transition: 0.3s;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-        .game-button:hover {
-            background-color: #1E90FF;
-        }
-    </style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .login-box {
+      background: #222;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 5px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .below-text {
+      text-align: center;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>evan stupid gam site</h1>
+<div class="wrapper">
 
-    <button class="game-button" onclick="window.location.href='Games/Baldi/index.html'">Baldi's Basics Classic</button>
-    <button class="game-button" onclick="window.location.href='Games/Slope/index.html'">Slope</button>
-    <button class="game-button" onclick="window.location.href='Games/Drive_Mad/index.html'">Drive Mad</button>
-    <button class="game-button" onclick="window.location.href='Games/Escape_Road_City/index.html'">Escape Road City</button>
-    <button class="game-button" onclick="window.location.href='Games/Friday_Night_Funkin/index.html'">Friday Night Funkin'</button>
+  <div class="login-box">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Password">
+    <br>
+    <button onclick="checkPassword()">Enter</button>
+    <p class="error" id="errorMessage"></p>
+  </div>
 
-    <h2>made by evan, more games coming soon.</h2>
+  <h3 class="below-text">Password only given out to specific people, ask evan for more info</h3>
 
+</div>
+
+<script>
+  const correctPassword = "47126812";
+
+  function checkPassword() {
+    const enteredPassword = document.getElementById("passwordInput").value;
+    const errorMessage = document.getElementById("errorMessage");
+
+    if (enteredPassword === correctPassword) {
+      window.location.href = "home.html";
+    } else {
+      errorMessage.textContent = "Incorrect password!";
+    }
+  }
+</script>
 
 </body>
 </html>
